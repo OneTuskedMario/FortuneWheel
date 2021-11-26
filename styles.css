@@ -1,0 +1,63 @@
+body {
+  background-color: #e5e5f7;
+  background-image: radial-gradient(#4333ff 1.4500000000000002px, transparent 1.4500000000000002px), radial-gradient(#4333ff 1.4500000000000002px, #e5e5f7 1.4500000000000002px);
+  background-size: 58px 58px;
+  background-position: 0 0, 29px 29px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+#wheel {
+  width: 26rem;
+  height: 26rem;
+}
+
+#wheel.moved {
+  -webkit-animation: spin 0.5s linear 2;
+  -moz-animation: spin 0.5s linear 2;
+  animation: spin 0.5s linear 2;
+}
+
+#button {
+  margin-top: 3rem;
+  background-color: rgba(0, 0, 0, 0.4);
+  padding: 18px 18px;
+  border: 3px solid black;
+  border-radius: 40px;
+  box-shadow: 0 5px 1.5px #999;
+  font-family: "Ubuntu", sans-serif;
+  font-size: 1.5rem;
+  user-select: none;
+}
+
+#button:hover {
+  background-color: rgba(0, 0, 0, 0.6);
+  cursor: pointer;
+}
+
+#button:active {
+  background-color: #5f6ede;
+  box-shadow: 0 3px 1.5px #666;
+  transform: translate(0%, 13%);
+}
+
+@-moz-keyframes spin {
+  100% {
+    -moz-transform: rotate(360deg); /*random value*/
+  }
+}
+
+@-webkit-keyframes spin {
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
