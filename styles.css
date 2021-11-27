@@ -18,7 +18,7 @@ body {
   width: 26rem;
   height: 26rem;
   transition: all 8s cubic-bezier(0,.57,.61,0.99);
-  filter: drop-shadow(0px 0px 15px #000);   /*drop shadow through transparent png*/
+  filter: drop-shadow(0px 0px 10px #000);   /*drop shadow through transparent png*/
 }
 #button {
   margin-top: 3rem;
@@ -34,4 +34,25 @@ body {
 #button:hover {
   background-color: rgba(0, 0, 0, 0.6)!important;
   cursor: pointer!important;
+}
+#slot{
+  left: 15rem;
+  position: absolute;
+  width: 7rem;
+  height: 5rem;
+  border: 3px solid black;
+  background-color: rgba(68,76,247,0.9);
+  box-shadow: 0 5px 1.5px #999;
+  border-radius: 12px;
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+  text-align: center;
+  font-size: 1.4rem;
+  line-height: 3rem;
+}
+#slot>p{
+  position: relative;
+  font-size: 1.4rem;
+  top: -18%;
+  text-align: center;
+  line-height: 0;
 }

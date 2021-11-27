@@ -12,7 +12,7 @@ spin.onclick = function() { //button click function for spin
   spin.style.boxShadow = "0 3px 1.5px #666";
   spin.style.transform = "translate(0%, 14%)";
   spin.style.pointerEvents = "none";
-
+  document.getElementById("text").innerHTML = "";
   //random int injected into the rotation for random spins
   tick++;
   cycles = Math.ceil(Math.random() * 360) + (cycle*tick); //random spin plus normal spins
@@ -24,10 +24,34 @@ spin.onclick = function() { //button click function for spin
 };
 
 content.ontransitionend = function(){
-  //prize update directly on win
-  if (prize!=1){
 
-  }
+  //prize update directly on win
+  switch (prize){
+    case 1:
+      document.getElementById("text").innerHTML = "Red!";
+      break;
+    case 2:
+      document.getElementById("text").innerHTML = "Purple!";
+      break;
+    case 3:
+      document.getElementById("text").innerHTML = "Violet!";
+      break;
+    case 4:
+      document.getElementById("text").innerHTML = "Blue!";
+      break;
+    case 5:
+      document.getElementById("text").innerHTML = "Cyan!";
+      break;
+    case 6:
+      document.getElementById("text").innerHTML = "Green!";
+      break;
+    case 7:
+      document.getElementById("text").innerHTML = "Yellow!";
+      break;
+    case 8:
+      document.getElementById("text").innerHTML = "Orange!";
+      break;}
+
   //injects button styles in css to make button appear available again
   spin.style.boxShadow = "0 5px 1.5px #999";
   spin.style.opacity = "1";
