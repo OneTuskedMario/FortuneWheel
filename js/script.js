@@ -1,8 +1,8 @@
 var content = document.getElementById("wheel");
 var spin = document.getElementById("button");
 var tick = 0;
-var cycle = 4*360;
-var totalizer = 0;
+var cycle = 6*360; //6 spins
+var prize = 0;
 
 spin.onclick = function() { //button click function for spin
 
@@ -15,14 +15,19 @@ spin.onclick = function() { //button click function for spin
 
   //random int injected into the rotation for random spins
   tick++;
-  cycles = Math.ceil(Math.random() * 360) + (cycle*tick); //random spins plus normal spins
+  cycles = Math.ceil(Math.random() * 360) + (cycle*tick); //random spin plus normal spins
   content.style.transform = "rotate(" + cycles + "deg)"; //rotate the wheel
   console.log(cycles);
-  var prize = Math.ceil((cycles % 360) / 45); //divide the wheel to determine prize
+  prize = Math.ceil((cycles % 360) / 45); //divide the wheel to determine prize
   console.log(prize);
+  return prize;
 };
-content.ontransitionend = function(){
 
+content.ontransitionend = function(){
+  //prize update directly on win
+  if (prize!=1){
+
+  }
   //injects button styles in css to make button appear available again
   spin.style.boxShadow = "0 5px 1.5px #999";
   spin.style.opacity = "1";
