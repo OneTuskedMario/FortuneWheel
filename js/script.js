@@ -1,16 +1,19 @@
 var content = document.getElementById("wheel");
 var spin = document.getElementById("button");
-const animation = document.querySelector('.reducted');
+var historybtn = document.getElementById("button2")
+const animation = document.querySelector(".reducted");
+var i,x = 0;
+const array = [i];
 var tick = 0;
 var cycle = 6*360; //6 spins
 var prize = 0;
-var bet,bet2 = 10; //CHANGE THIS FOR BET AMOUNT & LINE 25
+var bet,bet2 = 10; //CHANGE THIS FOR BET AMOUNT & LINE 28
 var coins = 50; //CHANGE THIS FOR WALLET AMMOUNT
 
 //makes the wallet amount appear on the div
 document.getElementById("wallet").innerHTML = "💰: " + coins+" €";
 
-spin.onclick = function() {
+spin.onclick = function() { //everything under here initiates when you click SPIN
 
   // injects button styles to appear pressed in
   spin.style.backgroundColor = "#476eb4";
@@ -39,7 +42,7 @@ spin.onclick = function() {
   prize = Math.ceil((cycles % 360) / 45); //divides the wheel to determine prize | gives a value 1-8
 };
 
-content.ontransitionend = function(){
+content.ontransitionend = function(){ //everything under here initiates when the wheel stops spinning
 
   //prize value determines the won amount & calculates the wallet amount
   switch (prize){
@@ -98,9 +101,32 @@ content.ontransitionend = function(){
   spin.style.transform = "translate(0%, 0%)";
   spin.style.pointerEvents = "auto";
 
+
+
+  //array to save history prize
+  for (var i = 0; x < 10; x++){
+    if (bet==0){
+      break;
+    }
+
+    array.push(bet+" €");
+    i++;
+    break;
+  }
+  //injects the array into html
+  document.getElementById("historytext").innerHTML=array;
+  document.getElementById("historytext").textContent=array.join("\n");
+
+
   //If there are not enough money on the wallet, it disables the button
   if(coins<bet2){
   spin.style.pointerEvents = "none";
   spin.style.opacity = "0.4";
   }
+};
+
+//button to toggle history window
+function toggle(){ //initiates when you click the history btn
+  var x = document.getElementById("history");
+  x.classList.toggle("hide");
 };

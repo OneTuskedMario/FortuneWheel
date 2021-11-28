@@ -35,7 +35,52 @@ body {
   background-color: rgba(0, 0, 0, 0.6)!important;
   cursor: pointer!important;
 }
-#slot{
+#button2 { /*history button*/
+  position: absolute;
+  right: 14rem;
+  background-color: rgba(68,76,247,0.8);
+  padding: 8px 8px;
+  border: 3px solid black;
+  border-radius: 12px;
+  box-shadow: 0 5px 1.5px #999;
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+  font-size: 1.6rem;
+  user-select: none;
+}
+#button2:hover {
+  background-color: rgba(68, 77, 249, 1);
+  cursor: pointer;
+}
+#button2:active {
+  background-color: rgba(108, 109, 128, 1);
+  transform: translate(0%, 13%);
+  box-shadow: 0 3px 1.5px #666;
+}
+.hide{
+  visibility: hidden;
+}
+#history{ /*The history window*/
+  top: 25rem;
+  right: 15rem;
+  position: absolute;
+  width: 6rem;
+  height: 6rem;
+  border: 3px solid black;
+  background-color: rgba(68,76,247,0.8);
+  box-shadow: 0 5px 1.5px #999;
+  border-radius: 12px;
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+  text-align: center;
+  user-select: none;
+  overflow: auto;
+}
+
+#historytext{ /*The text inside the history window*/
+  white-space: pre;
+  font-size: 1.4rem;
+
+}
+#slot{ /*YOU WON window*/
   left: 15rem;
   position: absolute;
   width: 8rem;
@@ -48,9 +93,9 @@ body {
   text-align: center;
   font-size: 1.4rem;
   line-height: 3rem;
-
+  user-select: none;
 }
-#slot>p{
+#slot>p{ /*Here javascript injects the amount you won*/
   position: relative;
   font-size: 1.4rem;
   top: -18%;
@@ -58,7 +103,7 @@ body {
   line-height: 0;
 }
 
-#wallet{
+#wallet{ /*The wallet window*/
   margin-top: 2rem;
   width: 7rem;
   height: 4rem;
@@ -70,14 +115,20 @@ body {
   line-height: 3.6rem;
   font-family: 'M PLUS Rounded 1c', sans-serif;
   font-size: 1.4rem;
+  user-select: none;
 }
-.reducted{
+.reducted{ /*the reducted bet amount animation when you click spin*/
 position: absolute;
 top: 38.45rem;
 margin-left: 0.8rem;
 font-family: 'M PLUS Rounded 1c', sans-serif;
-font-size: 1.44rem;
-color: rgb(167, 0, 0);
+font-size: 1.45rem;
+user-select: none;
+color: rgb(187, 1, 1);
+text-shadow: -0.4px 0.4px 0 black,
+              0.4px 0.4px 0 black,
+              0.4px -0.4px 0 black,
+              -0.4px -0.4px 0 black;
 }
 .info{
   margin-top: 20rem;
@@ -90,19 +141,24 @@ color: rgb(167, 0, 0);
 .pic{
   width: 2rem;
   height: 2.5rem;
+  user-select: none;
 }
 .pic1{
   width: 1.8rem;
   height: 1.8rem;
+  user-select: none;
 }
 .pic2{
   width: 2.2rem;
   height: 2.2rem;
+  user-select: none;
 }
 .pic3{
   width: 2.5rem;
   height: 2.5rem;
+  user-select: none;
 }
 li{
   margin-bottom: 0.2rem;
+  user-select: none;
 }
