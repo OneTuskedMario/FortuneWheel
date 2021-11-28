@@ -21,7 +21,7 @@ body {
   filter: drop-shadow(0px 0px 10px #000);   /*drop shadow through transparent png*/
 }
 #button {
-  margin-top: 3rem;
+  margin-top: 1rem;
   background-color: rgba(0, 0, 0, 0.4);
   padding: 18px 18px;
   border: 3px solid black;
@@ -38,16 +38,17 @@ body {
 #slot{
   left: 15rem;
   position: absolute;
-  width: 7rem;
+  width: 8rem;
   height: 5rem;
   border: 3px solid black;
-  background-color: rgba(68,76,247,0.9);
+  background-color: rgba(68,76,247,0.8);
   box-shadow: 0 5px 1.5px #999;
   border-radius: 12px;
   font-family: 'M PLUS Rounded 1c', sans-serif;
   text-align: center;
   font-size: 1.4rem;
   line-height: 3rem;
+
 }
 #slot>p{
   position: relative;
@@ -55,4 +56,44 @@ body {
   top: -18%;
   text-align: center;
   line-height: 0;
+}
+#wallet{
+  margin-top: 2rem;
+  width: 7rem;
+  height: 4rem;
+  border: 3px solid black;
+  background-color: rgba(68,76,247,0.8);
+  box-shadow: 0 5px 1.5px #999;
+  border-radius: 12px;
+  text-align: center;
+  line-height: 3.6rem;
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+  font-size: 1.4rem;
+}
+.info{
+  margin-top: 20rem;
+  position: absolute;
+  left: 14rem;
+  font-size: 1.4rem;
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+  list-style-type:none;
+}
+.pic{
+  width: 2rem;
+  height: 2.5rem;
+}
+.pic1{
+  width: 1.8rem;
+  height: 1.8rem;
+}
+.pic2{
+  width: 2rem;
+  height: 2rem;
+}
+.pic3{
+  width: 2.5rem;
+  height: 2.5rem;
+}
+li{
+  margin-bottom: 0.2rem;
 }

@@ -3,54 +3,82 @@ var spin = document.getElementById("button");
 var tick = 0;
 var cycle = 6*360; //6 spins
 var prize = 0;
+var bet,bet2 = 10; //CHANGE THIS FOR BET AMOUNT & LINE 23
+var coins = 50; //CHANGE THIS FOR WALLET AMMOUNT
 
-spin.onclick = function() { //button click function for spin
+//makes the wallet amount appear on the div
+document.getElementById("wallet").innerHTML = "💰: " + coins+" €";
 
-  // injects button styles in css to appear pressed in
+spin.onclick = function() {
+
+  // injects button styles to appear pressed in
   spin.style.backgroundColor = "#476eb4";
   spin.style.opacity = "0.6";
   spin.style.boxShadow = "0 3px 1.5px #666";
   spin.style.transform = "translate(0%, 14%)";
   spin.style.pointerEvents = "none";
-  document.getElementById("text").innerHTML = "";
+
+  document.getElementById("text").innerHTML = ""; //removes won amount on SLOT window after click
+
+  //updates the total wallet amount
+  bet=10;
+  coins=coins-bet;
+  document.getElementById("wallet").innerHTML = "💰: "+coins+" €";
+
   //random int injected into the rotation for random spins
   tick++;
   cycles = Math.ceil(Math.random() * 360) + (cycle*tick); //random spin plus normal spins
   content.style.transform = "rotate(" + cycles + "deg)"; //rotate the wheel
-  console.log(cycles);
-  prize = Math.ceil((cycles % 360) / 45); //divide the wheel to determine prize
-  console.log(prize);
-  return prize;
+  prize = Math.ceil((cycles % 360) / 45); //divide the wheel to determine prize | gives a value 1-8
 };
 
 content.ontransitionend = function(){
 
-  //prize update directly on win
+  //prize value determines the won amount & calculates the wallet amounts
   switch (prize){
     case 1:
-      document.getElementById("text").innerHTML = "Red!";
+      bet-=bet;
+      document.getElementById("text").innerHTML = bet + " €";
+      coin=coins-bet;
       break;
     case 2:
-      document.getElementById("text").innerHTML = "Purple!";
+      bet=bet*1.2;
+      document.getElementById("text").innerHTML = bet + " €";
+      coins=coins+bet;
       break;
     case 3:
-      document.getElementById("text").innerHTML = "Violet!";
+      bet-=bet;
+      document.getElementById("text").innerHTML = bet + " €";
+      coin=coins-bet;
       break;
     case 4:
-      document.getElementById("text").innerHTML = "Blue!";
+      bet=bet*1.2;
+      document.getElementById("text").innerHTML = bet + " €";
+      coins=coins+bet;
       break;
     case 5:
-      document.getElementById("text").innerHTML = "Cyan!";
+      bet=bet*5;
+      document.getElementById("text").innerHTML = bet + " €";
+      coins=coins+bet;
       break;
     case 6:
-      document.getElementById("text").innerHTML = "Green!";
+      bet=bet*1.2;
+      document.getElementById("text").innerHTML = bet + " €";
+      coins=coins+bet;
       break;
     case 7:
-      document.getElementById("text").innerHTML = "Yellow!";
+      bet-=bet;
+      document.getElementById("text").innerHTML = bet + " €";
+      coin=coins-bet;
       break;
     case 8:
-      document.getElementById("text").innerHTML = "Orange!";
+      bet=bet*2;
+      document.getElementById("text").innerHTML = bet + " €";
+      coins=coins+bet;
       break;}
+
+  //updates the wallet from the calculated amount
+  document.getElementById("wallet").innerHTML = "💰: "+coins+" €";
 
   //injects button styles in css to make button appear available again
   spin.style.boxShadow = "0 5px 1.5px #999";
@@ -59,4 +87,9 @@ content.ontransitionend = function(){
   spin.style.transform = "translate(0%, 0%)";
   spin.style.pointerEvents = "auto";
 
+  //If there are not enough money on the wallet, it disables the button
+  if(coins<bet2){
+  spin.style.pointerEvents = "none";
+  spin.style.opacity = "0.4";
+  }
 };
