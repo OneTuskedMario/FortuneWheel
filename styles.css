@@ -57,6 +57,7 @@ body {
   text-align: center;
   line-height: 0;
 }
+
 #wallet{
   margin-top: 2rem;
   width: 7rem;
@@ -69,6 +70,14 @@ body {
   line-height: 3.6rem;
   font-family: 'M PLUS Rounded 1c', sans-serif;
   font-size: 1.4rem;
+}
+.reducted{
+position: absolute;
+top: 38.45rem;
+margin-left: 0.8rem;
+font-family: 'M PLUS Rounded 1c', sans-serif;
+font-size: 1.44rem;
+color: rgb(167, 0, 0);
 }
 .info{
   margin-top: 20rem;
@@ -87,8 +96,8 @@ body {
   height: 1.8rem;
 }
 .pic2{
-  width: 2rem;
-  height: 2rem;
+  width: 2.2rem;
+  height: 2.2rem;
 }
 .pic3{
   width: 2.5rem;

@@ -1,9 +1,10 @@
 var content = document.getElementById("wheel");
 var spin = document.getElementById("button");
+const animation = document.querySelector('.reducted');
 var tick = 0;
 var cycle = 6*360; //6 spins
 var prize = 0;
-var bet,bet2 = 10; //CHANGE THIS FOR BET AMOUNT & LINE 23
+var bet,bet2 = 10; //CHANGE THIS FOR BET AMOUNT & LINE 25
 var coins = 50; //CHANGE THIS FOR WALLET AMMOUNT
 
 //makes the wallet amount appear on the div
@@ -25,16 +26,22 @@ spin.onclick = function() {
   coins=coins-bet;
   document.getElementById("wallet").innerHTML = "💰: "+coins+" €";
 
+  //makes the deduct amount visible & initiates the animation
+  animation.style.visibility="visible";
+  animation.innerHTML = "-"+bet;
+  animation.classList.add('animate__animated', 'animate__fadeOutUp');
+
+
   //random int injected into the rotation for random spins
   tick++;
   cycles = Math.ceil(Math.random() * 360) + (cycle*tick); //random spin plus normal spins
   content.style.transform = "rotate(" + cycles + "deg)"; //rotate the wheel
-  prize = Math.ceil((cycles % 360) / 45); //divide the wheel to determine prize | gives a value 1-8
+  prize = Math.ceil((cycles % 360) / 45); //divides the wheel to determine prize | gives a value 1-8
 };
 
 content.ontransitionend = function(){
 
-  //prize value determines the won amount & calculates the wallet amounts
+  //prize value determines the won amount & calculates the wallet amount
   switch (prize){
     case 1:
       bet-=bet;
@@ -42,7 +49,7 @@ content.ontransitionend = function(){
       coin=coins-bet;
       break;
     case 2:
-      bet=bet*1.2;
+      bet=bet*1.2;//
       document.getElementById("text").innerHTML = bet + " €";
       coins=coins+bet;
       break;
@@ -52,17 +59,17 @@ content.ontransitionend = function(){
       coin=coins-bet;
       break;
     case 4:
-      bet=bet*1.2;
+      bet=bet*1.2;//
       document.getElementById("text").innerHTML = bet + " €";
       coins=coins+bet;
       break;
     case 5:
-      bet=bet*5;
+      bet=bet*5;//
       document.getElementById("text").innerHTML = bet + " €";
       coins=coins+bet;
       break;
     case 6:
-      bet=bet*1.2;
+      bet=bet*1.2;//
       document.getElementById("text").innerHTML = bet + " €";
       coins=coins+bet;
       break;
@@ -72,13 +79,17 @@ content.ontransitionend = function(){
       coin=coins-bet;
       break;
     case 8:
-      bet=bet*2;
+      bet=bet*2;//
       document.getElementById("text").innerHTML = bet + " €";
       coins=coins+bet;
       break;}
 
   //updates the wallet from the calculated amount
   document.getElementById("wallet").innerHTML = "💰: "+coins+" €";
+
+  //deduction animation dissapears
+  animation.classList.remove('animate__animated', 'animate__fadeOutUp');
+  animation.style.visibility="hidden";
 
   //injects button styles in css to make button appear available again
   spin.style.boxShadow = "0 5px 1.5px #999";
