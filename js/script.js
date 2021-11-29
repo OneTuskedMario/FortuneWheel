@@ -7,8 +7,8 @@ const array = [i];
 var tick = 0;
 var cycle = 6*360; //6 spins
 var prize = 0;
-var bet,bet2 = 10; //CHANGE THIS FOR BET AMOUNT & ON LINE 28
-var coins = 50; //CHANGE THIS FOR WALLET AMMOUNT
+var bet,bet2 = 20; //CHANGE THIS FOR BET AMOUNT & ON LINE 28
+var coins = 100; //CHANGE THIS FOR WALLET AMMOUNT
 
 //makes the wallet amount appear on the div
 document.getElementById("wallet").innerHTML = "💰: " + coins+" €";
@@ -25,7 +25,7 @@ spin.onclick = function() { //everything under here initiates when you click SPI
   document.getElementById("text").innerHTML = ""; //removes won amount on SLOT window after click
 
   //updates the total wallet amount
-  bet=10;
+  bet=20;
   coins=coins-bet;
   document.getElementById("wallet").innerHTML = "💰: "+coins+" €";
 
