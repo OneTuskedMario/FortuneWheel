@@ -1,3 +1,4 @@
+html{overflow-x: hidden;}
 body {
   background-color: #e5e5f7;
   background-image: radial-gradient(#4333ff 1.4500000000000002px, transparent 1.4500000000000002px), radial-gradient(#4333ff 1.4500000000000002px, #e5e5f7 1.4500000000000002px);
@@ -9,6 +10,7 @@ body {
   flex-direction: column;
   margin: 0;
   overflow-x: hidden;
+  position: relative;
 }
 #hand {
   width: 5rem;
@@ -174,7 +176,7 @@ li{
 }
 
 @media (max-width: 700px) { /*phone mode*/
-  #slot{left: 0.5rem; top: 0.5rem;}
+  #slot{font-size: 1.3rem; width: 7rem; height: 5rem;left: 0.5rem; top: 0.5rem;}
   .info{left: 0rem; padding-left: 25px; top: 12rem;}
   #wheel{width: 25rem; height: 25rem;}
   #wallet{position: absolute; top: 0.8rem; right: 0.5rem; margin-top: 0;}
