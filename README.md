@@ -9,6 +9,7 @@ The Assignment is deployed live: [HERE](https://onetuskedmario.github.io/Fortune
 - Wait for the wheel to spin
 - Your prize is on the *YOU WIN* window
 - The default bet amount is 10€
+- The default wallet amount is 50€
 - Your total wallet amount is found at the window with the cashbag emoji
 - Press the *HISTORY* button to see all your past prizes
 - More and extensive useful comments on the code itself that'll help you navigate the components
