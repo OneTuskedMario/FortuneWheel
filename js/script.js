@@ -8,7 +8,7 @@ var tick = 0;
 var cycle = 6*360; //6 spins
 var prize = 0;
 var bet = 0;
-var bet2 = 30; //CHANGE THIS FOR DEFAULT BET AMOUNT
+var bet2 = 10; //CHANGE THIS FOR DEFAULT BET AMOUNT
 var coins = 50; //CHANGE THIS FOR DEFAULT WALLET AMMOUNT
 
 //makes the wallet amount appear on the div
