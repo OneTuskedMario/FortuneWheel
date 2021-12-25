@@ -8,7 +8,7 @@ var tick = 0;
 var cycle = 6*360; //6 spins
 var prize = 0;
 var bet = 0;
-var bet2 = 10; //CHANGE THIS FOR DEFAULT BET AMOUNT
+var bet2 = 30; //CHANGE THIS FOR DEFAULT BET AMOUNT
 var coins = 50; //CHANGE THIS FOR DEFAULT WALLET AMMOUNT
 
 //makes the wallet amount appear on the div
@@ -24,7 +24,9 @@ spin.onclick = function() { //everything under here initiates when you click SPI
   spin.style.pointerEvents = "none";
 
   document.getElementById("text").innerHTML = ""; //removes won amount on SLOT window after click
-  bet=bet2;
+
+  bet=bet2; //resets to default amount
+
   //updates the total wallet amount
   coins=coins-bet;
   document.getElementById("wallet").innerHTML = "💰: "+coins+" €";
@@ -49,7 +51,6 @@ content.ontransitionend = function(){ //everything under here initiates when the
     case 1:
       bet-=bet;
       document.getElementById("text").innerHTML = bet + " €";
-      coin=coins-bet;
       break;
     case 2:
       bet=bet*1.2;
@@ -59,7 +60,6 @@ content.ontransitionend = function(){ //everything under here initiates when the
     case 3:
       bet-=bet;
       document.getElementById("text").innerHTML = bet + " €";
-      coin=coins-bet;
       break;
     case 4:
       bet=bet*1.2;
@@ -79,7 +79,6 @@ content.ontransitionend = function(){ //everything under here initiates when the
     case 7:
       bet-=bet;
       document.getElementById("text").innerHTML = bet + " €";
-      coin=coins-bet;
       break;
     case 8:
       bet=bet*2;
