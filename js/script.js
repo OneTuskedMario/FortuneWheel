@@ -7,8 +7,9 @@ const array = [i];
 var tick = 0;
 var cycle = 6*360; //6 spins
 var prize = 0;
-var bet,bet2 = 10; //CHANGE THIS FOR BET AMOUNT & ON LINE 28
-var coins = 50; //CHANGE THIS FOR WALLET AMMOUNT
+var bet = 0;
+var bet2 = 30; //CHANGE THIS FOR DEFAULT BET AMOUNT
+var coins = 50; //CHANGE THIS FOR DEFAULT WALLET AMMOUNT
 
 //makes the wallet amount appear on the div
 document.getElementById("wallet").innerHTML = "💰: " + coins+" €";
@@ -24,8 +25,9 @@ spin.onclick = function() { //everything under here initiates when you click SPI
 
   document.getElementById("text").innerHTML = ""; //removes won amount on SLOT window after click
 
+  bet=bet2; //resets to default amount
+
   //updates the total wallet amount
-  bet=10;
   coins=coins-bet;
   document.getElementById("wallet").innerHTML = "💰: "+coins+" €";
 
@@ -49,7 +51,6 @@ content.ontransitionend = function(){ //everything under here initiates when the
     case 1:
       bet-=bet;
       document.getElementById("text").innerHTML = bet + " €";
-      coin=coins-bet;
       break;
     case 2:
       bet=bet*1.2;
@@ -59,7 +60,6 @@ content.ontransitionend = function(){ //everything under here initiates when the
     case 3:
       bet-=bet;
       document.getElementById("text").innerHTML = bet + " €";
-      coin=coins-bet;
       break;
     case 4:
       bet=bet*1.2;
@@ -79,7 +79,6 @@ content.ontransitionend = function(){ //everything under here initiates when the
     case 7:
       bet-=bet;
       document.getElementById("text").innerHTML = bet + " €";
-      coin=coins-bet;
       break;
     case 8:
       bet=bet*2;
@@ -115,12 +114,20 @@ content.ontransitionend = function(){ //everything under here initiates when the
   document.getElementById("historytext").innerHTML=array;
   document.getElementById("historytext").textContent=array.join("\n");
 
+  if (bet!=bet2){ //resets the bet amount back to default
+    bet=bet2;
+  }
+
   //If there are not enough money on the wallet, it disables the button
   if(coins<bet2){
   spin.style.pointerEvents = "none";
   spin.style.opacity = "0.4";
   }
+
 };
+   //sets the bet back to its original price
+
+
 
 //button to toggle history window
 function toggle(){ //initiates when you click the history btn
